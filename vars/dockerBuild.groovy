@@ -18,9 +18,9 @@ def call(Map config = [:]) {
     if (push) {
         echo "📤 Pushing Docker image: ${fullImageName}"
         withCredentials([usernamePassword(credentialsId: config.credentialsId ?: 'dockerCred', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-            sh "echo \$PASSWORD | docker login ${registry} -u \$USERNAME --password-stdin"
+            sh "echo \$PASSWORD | docker login -u \$USERNAME --password-stdin"
             sh "docker push ${fullImageName}"
-            sh "docker logout ${registry}"
+            sh "docker logout"
         }
     }
 
