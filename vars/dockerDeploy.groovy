@@ -10,7 +10,7 @@ def call(Map config = [:]) {
     }
 }
 
-// dockerComposeDeploy(
+// dockerDeploy(
 //                         composeFile: 'docker-compose.yml',
 //                         workingDir: '.' // or 'backend' or 'deploy' folder
 // )
