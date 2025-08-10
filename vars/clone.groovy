@@ -1,3 +1,7 @@
-def call(String url, String branch){
-  git url: "${url}", branch: "${branch}"
+def call(String url, String branch, String credentialsId = null) {
+    if (credentialsId) {
+        git url: "${url}", branch: "${branch}", credentialsId: credentialsId
+    } else {
+        git url: "${url}", branch: "${branch}"
+    }
 }
